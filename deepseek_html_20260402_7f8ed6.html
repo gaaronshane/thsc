@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>天汇供应链中心 | 包装+创意 · 留白包装+个性定制</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #ffffff;
+            color: #1e293b;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header & Navigation */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 24px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: baseline;
+            gap: 4px;
+        }
+
+        .logo-main {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, #1e3a5f 0%, #2c5f8a 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .logo-sub {
+            font-size: 0.85rem;
+            font-weight: 400;
+            color: #5b6e8c;
+            border-left: 1px solid #cbd5e1;
+            padding-left: 10px;
+            margin-left: 6px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #334155;
+            transition: color 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: #2c5f8a;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #1e293b;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 80px 0 60px;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .hero-grid {
+            display: flex;
+            align-items: center;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: #e6f0fa;
+            color: #1e5a8a;
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #0f172a;
+        }
+
+        .hero-highlight {
+            background: linear-gradient(120deg, #e0f2fe 0%, #bae6fd 100%);
+            padding: 0 8px;
+            display: inline-block;
+            border-radius: 8px;
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            color: #475569;
+            margin-bottom: 32px;
+            max-width: 540px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: #1e3a5f;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: #2c5f8a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #1e3a5f;
+            border: 1.5px solid #1e3a5f;
+            padding: 12px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-outline:hover {
+            background: #1e3a5f;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .hero-visual {
+            flex: 1;
+            background: linear-gradient(145deg, #ffffff, #f1f5f9);
+            padding: 20px;
+            border-radius: 32px;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .hero-visual-icon {
+            font-size: 5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero-quote {
+            font-style: italic;
+            color: #2c5f8a;
+            font-weight: 500;
+            margin-top: 16px;
+            font-size: 0.9rem;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-alt {
+            background-color: #f9fafb;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 12px;
+        }
+
+        .section-header p {
+            color: #5b6e8c;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #2c5f8a, #7cb9e8);
+            margin: 16px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Value Cards */
+        .values-grid {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .value-card {
+            background: white;
+            padding: 32px 24px;
+            border-radius: 24px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid #eef2f6;
+        }
+
+        .value-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.1);
+            border-color: #cbdff2;
+        }
+
+        .value-icon {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+
+        .value-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .value-card p {
+            color: #5b6e8c;
+            font-size: 0.9rem;
+        }
+
+        /* Products & Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
+        }
+
+        .service-item {
+            background: white;
+            border-radius: 20px;
+            padding: 28px;
+            transition: all 0.2s;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+            border: 1px solid #eef2f6;
+        }
+
+        .service-item:hover {
+            border-color: #cbdff2;
+            box-shadow: 0 12px 24px -12px rgba(0, 0, 0, 0.08);
+        }
+
+        .service-icon {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+
+        .service-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .service-item p {
+            color: #5b6e8c;
+            font-size: 0.9rem;
+        }
+
+        /* Capability & Tech */
+        .capability-badge {
+            background: #e6f0fa;
+            color: #1e5a8a;
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        /* Client Section (Brands) */
+        .brands-showcase {
+            background: #ffffff;
+            border-radius: 32px;
+            padding: 40px 24px;
+            text-align: center;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.02);
+            border: 1px solid #ecf3f9;
+        }
+
+        .brand-logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 32px;
+            margin: 32px 0 16px;
+        }
+
+        .brand-item {
+            font-weight: 500;
+            color: #334155;
+            background: #f8fafc;
+            padding: 8px 24px;
+            border-radius: 40px;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* Innovation highlight */
+        .innovation-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .innovation-text {
+            flex: 1;
+        }
+
+        .innovation-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .innovation-text p {
+            color: #475569;
+            margin-bottom: 20px;
+        }
+
+        .innovation-visual {
+            flex: 1;
+            background: linear-gradient(145deg, #eef2ff, #ffffff);
+            border-radius: 32px;
+            padding: 32px;
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin: 12px;
+        }
+
+        /* Contact */
+        .contact-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 48px;
+            background: #f8fafc;
+            border-radius: 32px;
+            padding: 48px;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            color: #334155;
+        }
+
+        .contact-detail span:first-child {
+            font-size: 1.2rem;
+        }
+
+        .contact-form {
+            flex: 1;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #cbd5e1;
+            border-radius: 16px;
+            font-family: inherit;
+            transition: 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #2c5f8a;
+            box-shadow: 0 0 0 3px rgba(44, 95, 138, 0.1);
+        }
+
+        .btn-submit {
+            background: #1e3a5f;
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 40px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        .footer {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 48px 0 24px;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 32px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 12px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .footer-copyright {
+            text-align: center;
+            padding-top: 24px;
+            border-top: 1px solid #1e293b;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background: white;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                padding: 24px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+                gap: 20px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .hero-grid, .innovation-grid, .contact-grid {
+                flex-direction: column;
+            }
+
+            .contact-grid {
+                padding: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-main">天汇供应链中心</span>
+                <span class="logo-sub">福建天汇实业股份有限公司下属部门</span>
+            </div>
+            <button class="mobile-menu-btn" id="menuToggle">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">首页</a></li>
+                <li><a href="#about">品牌价值</a></li>
+                <li><a href="#services">核心业务</a></li>
+                <li><a href="#innovation">解决方案</a></li>
+                <li><a href="#contact">联络中心</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-content">
+                        <div class="hero-badge">留白包装 · 个性定制 · 智慧供应链</div>
+                        <h1>包装 + 创意<br>让包装的<span class="hero-highlight">价值</span>被更多人看见</h1>
+                        <p class="hero-desc">福建天汇实业股份有限公司下属天汇供应链中心，深耕包装行业近二十年，开创“留白包装+个性定制”模式，为品牌提供一站式包装解决方案，从设计到交付，赋能每一件商品的高光时刻。</p>
+                        <div class="hero-buttons">
+                            <a href="#contact" class="btn-primary">获取包装方案</a>
+                            <a href="#services" class="btn-outline">探索业务</a>
+                        </div>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="hero-visual-icon">📦✨</div>
+                        <div style="font-weight: 600; margin: 12px 0;">“装”满颜值与奇思妙想</div>
+                        <div class="hero-quote">从茶叶到食品、烘焙、喜礼 —— 天汇是八马茶叶、华祥苑、苏小糖、燕之屋、三只松鼠等品牌的共同选择</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 品牌价值 / About -->
+        <section id="about" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>重塑包装 · 链接价值</h2>
+                    <div class="divider"></div>
+                    <p>用创意驱动供应链，以科技重塑包装体验</p>
+                </div>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">🎨</div>
+                        <h3>留白包装+个性定制</h3>
+                        <p>开创“留白包装”模式，让每一款包装成为品牌独有的视觉语言。从版面设计到工艺定制，人人皆有品牌。</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">🌿</div>
+                        <h3>环保 · 可持续</h3>
+                        <p>以智慧包装树立“以纸代塑”新风尚，追求简约、自然、低碳、可二次利用，倡导环保可再生理念。</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">⚡</div>
+                        <h3>极速定制 · 一站式交付</h3>
+                        <p>从沟通、设计、定制打样到成品输出，真正做到一条龙现场可取，让用户体验速度与激情。</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">🔍</div>
+                        <h3>智慧包装 · 一物一码</h3>
+                        <p>每件包装附有唯一身份二维码，实现鉴真、防伪、溯源，让产品信息一目了然。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 核心业务 -->
+        <section id="services" class="section section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <h2>全品类包装 · 供应链整合</h2>
+                    <div class="divider"></div>
+                    <p>集包装设计、印刷及生产、销售为一体的现代化综合企业</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-item">
+                        <div class="service-icon">🎁</div>
+                        <h3>精品礼盒</h3>
+                        <p>水墨画、国风、赛博朋克等多元风格，质感时尚水晶盒、开窗纸盒，赋予礼品高级仪式感。</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon">🧻</div>
+                        <h3>纸罐 · 密封之王</h3>
+                        <p>全自动复合纸罐生产线，高温防水防摔测试，密封避光锁鲜。可定制排气阀，满足茶叶、咖啡等特殊需求。</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon">🥫</div>
+                        <h3>铁罐 · 包装袋</h3>
+                        <p>中高档铁罐及各种包装袋，软包装9色印刷机、全彩数码印刷机，满足多材质印刷需求。</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon">🏭</div>
+                        <h3>智能制造车间</h3>
+                        <p>制袋车间、铁制品生产车间、精品盒生产车间、UV印刷技工与全自动产线，实现高品质量产与柔性定制。</p>
+                    </div>
+                </div>
+                <div style="margin-top: 48px; background: white; border-radius: 24px; padding: 24px; text-align: center;">
+                    <span class="capability-badge">供应链网络 · 多仓协同</span>
+                    <p style="margin-top: 12px;">仓储物流部、电商仓、组装中心全面支撑，线下直营店覆盖安溪、泉州、厦门、漳州、福州、成都，辐射东南沿海乃至全球近百个国家和地区。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 创新与解决方案 -->
+        <section id="innovation" class="section">
+            <div class="container">
+                <div class="innovation-grid">
+                    <div class="innovation-text">
+                        <div class="capability-badge">AI赋能 · 智能包装新纪元</div>
+                        <h3>二十年深耕，“智造”包装未来</h3>
+                        <p>天汇不止于颜值，更以创意、科技、智造三核驱动。从最初的茶叶包装企业，如今涵盖食品、烘焙、喜礼、伴手礼等全领域。每个智慧包装都有专属“身份证”，扫一扫即可追溯源流。</p>
+                        <p>总经理陈恩祥曾分享《礼盒定制智能制造解决方案》，率先将AI、数字化透明工厂应用于包装定制服务，让个性化定制实现规模化。</p>
+                        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+                            <div><span style="font-weight:600;">全自动复合纸罐线</span> ✅</div>
+                            <div><span style="font-weight:600;">9色印刷机+数码印刷</span> ✅</div>
+                            <div><span style="font-weight:600;">极速打样 · 柔性智造</span> ✅</div>
+                        </div>
+                    </div>
+                    <div class="innovation-visual">
+                        <div class="feature-icon">🤖📱</div>
+                        <div style="font-weight: 500; margin: 12px 0;">智慧包装 · 一物一码</div>
+                        <div style="font-size: 0.85rem;">打开手机扫一扫，产品名称、生产批次、生产日期一目了然，实现鉴真、防伪、溯源。</div>
+                        <div style="margin-top: 20px; background: #eef2ff; border-radius: 40px; padding: 8px 16px; display: inline-block;">让产品带着“身份证”走向世界</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 合作伙伴 -->
+        <section class="section section-alt">
+            <div class="container">
+                <div class="brands-showcase">
+                    <h3 style="font-size: 1.6rem; margin-bottom: 8px;">信赖天汇的品牌伙伴</h3>
+                    <div class="brand-logos">
+                        <span class="brand-item">八马茶叶</span>
+                        <span class="brand-item">华祥苑</span>
+                        <span class="brand-item">苏小糖</span>
+                        <span class="brand-item">燕之屋</span>
+                        <span class="brand-item">三只松鼠</span>
+                        <span class="brand-item">新加坡&斯里兰卡建交国礼合作</span>
+                    </div>
+                    <p style="color: #475569; font-size: 0.9rem; margin-top: 24px;">产品畅销近百个国家和地区，亮相国内外包装展会，成为众多头部品牌的包装助跑器。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 联络中心 -->
+        <section id="contact" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>开启包装定制之旅</h2>
+                    <div class="divider"></div>
+                    <p>一站式供应链中心，期待与您共创品牌价值</p>
+                </div>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h3>天汇供应链中心</h3>
+                        <div class="contact-detail"><span>📍</span> 福建运营总部：厦门市思明区软件园二期望海路45号</div>
+                        <div class="contact-detail"><span>🏭</span> 制造基地：福建省安溪县城厢镇二环南路1818号</div>
+                        <div class="contact-detail"><span>📞</span> 业务咨询：400-6688-561（供应链专线）</div>
+                        <div class="contact-detail"><span>✉️</span> 定制合作：design@teawin.com.cn</div>
+                        <div class="contact-detail"><span>🌐</span> 官方采购平台：<a href="https://teawin.1688.com" target="_blank" style="color:#1e3a5f;">teawin.1688.com</a></div>
+                        <div style="margin-top: 20px;">
+                            <span class="capability-badge">留白包装+个性定制</span>
+                            <span class="capability-badge">国家高新技术企业</span>
+                            <span class="capability-badge">一站式包装解决方案服务商</span>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <form id="demoForm" action="#" method="post">
+                            <div class="form-group">
+                                <input type="text" placeholder="您的姓名 / 企业名称" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" placeholder="电子邮箱" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" placeholder="联系电话">
+                            </div>
+                            <div class="form-group">
+                                <textarea rows="3" placeholder="包装需求描述（如品类、数量、定制要求等）"></textarea>
+                            </div>
+                            <button type="submit" class="btn-submit">获取专属包装方案 →</button>
+                            <p style="font-size: 0.7rem; margin-top: 12px; color:#94a3b8;">提交后，供应链中心将1个工作日内与您对接</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">天汇供应链中心</div>
+                    <div style="font-size: 0.8rem;">福建天汇实业股份有限公司下属部门</div>
+                    <div style="margin-top: 12px;">让包装的价值被更多人看见™</div>
+                </div>
+                <div class="footer-links">
+                    <div><a href="#home">首页</a></div>
+                    <div><a href="#about">品牌价值</a></div>
+                    <div><a href="#services">核心业务</a></div>
+                    <div><a href="#innovation">解决方案</a></div>
+                    <div><a href="#contact">联络中心</a></div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                © 2026 天汇供应链中心  |  福建天汇实业股份有限公司  |  留白包装+个性定制  |  让包装创意赋能品牌
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单切换
+        const menuBtn = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        if (menuBtn && navLinks) {
+            menuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                    if (navLinks.classList.contains('active')) navLinks.classList.remove('active');
+                }
+            });
+        });
+        // 简单的表单提醒（演示）
+        const form = document.getElementById('demoForm');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('感谢您的留言！天汇供应链中心将尽快与您取得联系。');
+                form.reset();
+            });
+        }
+        // 头部透明滚动优化
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.05)';
+            } else {
+                header.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.05)';
+            }
+        });
+    </script>
+</body>
+</html>
